@@ -20,7 +20,11 @@ No!  It's too slow.  Do not use this.  This is only for educational purposes.
 
 The algorithms involves a lot of memory manipulation.  In PHP each
 string manipulation means copying or creating a new string instead of
-just manipulating a single byte.
+just manipulating a single byte.  For example:
+
+  $astring[$i] = 'a';
+
+Does not work!  You need to make a new string.  Bah.
 
 In addition, PHP does not (portabily) have a "uint32_t" integer type,
 so it has to be simulated using floating point numbers (53 bits).
@@ -33,3 +37,19 @@ slow I have not tested it.
 ## Now what? ##
 
 Well, I guess I'll have to make PECL extention or something.
+
+## Are there tests? ##
+
+Yes.  You'll need to install phpunit.  Then
+
+  make test
+
+runs all the fast tests
+
+  make slowtest
+
+might take an hour
+
+## nickg, you're doing it wrong ##
+
+Probably.  Please send patches if you have improvements!
